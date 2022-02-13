@@ -35,7 +35,7 @@ func TestParseContent(t *testing.T) {
 func TestRun(t *testing.T) {
 	var mockStdOut bytes.Buffer
 
-	if err := run(inputFile, &mockStdOut); err != nil {
+	if err := run(inputFile, &mockStdOut, true); err != nil {
 		t.Fatal(err)
 	}
 
@@ -56,5 +56,5 @@ func TestRun(t *testing.T) {
 		t.Error("Result content does not match golden file")
 	}
 
-	// os.Remove(outFile)
+	os.Remove(resultFile)
 }
